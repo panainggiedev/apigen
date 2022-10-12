@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HistoryController;
-
+use App\Http\Controllers\SamController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +14,8 @@ use App\Http\Controllers\HistoryController;
 |
 */
 
+//Route::get('/v2', ['middleware' =>'key', "uses" => 'SamController@samgov']);
+Route::get('/v2', [App\Http\Controllers\SamController::class, 'samgov'])->name('samgov');
 Route::get('/', function () {
     return view('auth/login')->with('id', 'idd');
 });
